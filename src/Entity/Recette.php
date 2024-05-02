@@ -3,33 +3,43 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Repository\RecetteRepository;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: RecetteRepository::class)]
-#[ApiResource]
+#[ORM\Entity]
+#[ApiResource(
+    operations: [
+        new Get(),
+        new GetCollection(),
+        new Post()
+    ],
+    paginationEnabled: false, 
+    normalizationContext: ['groups' => ['recette:read']],
+    denormalizationContext: ['groups' => ['recette:write']]
+)]
 class Recette
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['recette:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['recette:read', 'recette:write'])]
     private ?string $title = null;
 
-    /**
-     * @var Collection<int, Ingredient>
-     */
-    #[ORM\OneToMany(targetEntity: Ingredient::class, mappedBy: 'recette')]
+    #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Ingredient::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
+    #[Groups(['recette:read', 'recette:write'])]
     private Collection $ingredients;
 
-    /**
-     * @var Collection<int, Etape>
-     */
-    #[ORM\OneToMany(targetEntity: Etape::class, mappedBy: 'recette')]
+    #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Etape::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
+    #[Groups(['recette:read', 'recette:write'])]
     private Collection $etapes;
 
     public function __construct()
@@ -76,7 +86,6 @@ class Recette
     public function removeIngredient(Ingredient $ingredient): static
     {
         if ($this->ingredients->removeElement($ingredient)) {
-            // set the owning side to null (unless already changed)
             if ($ingredient->getRecette() === $this) {
                 $ingredient->setRecette(null);
             }
@@ -106,7 +115,6 @@ class Recette
     public function removeEtape(Etape $etape): static
     {
         if ($this->etapes->removeElement($etape)) {
-            // set the owning side to null (unless already changed)
             if ($etape->getRecette() === $this) {
                 $etape->setRecette(null);
             }

@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\EtapeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: EtapeRepository::class)]
 class Etape
@@ -12,15 +13,19 @@ class Etape
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['recette:read', 'recette:write'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['recette:read', 'recette:write'])]
     private ?string $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'etapes')]
-    private ?recette $recette = null;
+    #[Groups(['recette:read', 'recette:write'])]
+    private ?Recette $recette = null;
 
     #[ORM\Column(nullable: true)]
+    #[Groups(['recette:read', 'recette:write'])]
     private ?int $step = null;
 
     public function getId(): ?int
@@ -40,12 +45,12 @@ class Etape
         return $this;
     }
 
-    public function getRecette(): ?recette
+    public function getRecette(): ?Recette
     {
         return $this->recette;
     }
 
-    public function setRecette(?recette $recette): static
+    public function setRecette(?Recette $recette): static
     {
         $this->recette = $recette;
 
