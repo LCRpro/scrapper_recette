@@ -18,6 +18,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    # explicitly register the ScrapRecipesCommand command
-    App\Command\ScrapRecipesCommand:
+    App\Command\ScrapRecette:
+        tags: ['console.command']
+    App\Command\ImportJson:
         tags: ['console.command']
