@@ -1,4 +1,5 @@
 <?php
+
 // src/Command/ScrapRecipesCommand.php
 namespace App\Command;
 
@@ -15,7 +16,6 @@ use App\Entity\Etape;
 
 class ScrapRecipesCommand extends Command
 {
-   
     protected static $defaultName = 'app:recette';
     private $entityManager;
 
@@ -27,29 +27,34 @@ class ScrapRecipesCommand extends Command
 
     protected function configure()
     {
-        // Explicitly set the command name here
         $this->setName('app:recette')
-             ->setDescription('Scrap recipes from a URL and insert data into database');
-    }   
+            ->setDescription('Scrap recipes from a URL and insert data into the database');
+    }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $client = new HttpBrowser(HttpClient::create());
+        $client = new HttpBrowser(HttpClient::create([
+            'headers' => [
+                'User-Agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
+            ]
+        ]));
+
+        // Request the main page to extract links
         $crawler = $client->request('GET', 'https://www.allrecipes.com/recipes/77/drinks/');
+        $links = $crawler->filter('div.mntl-taxonomysc-article-list-group a.mntl-card-list-items')->links();
 
-        $recipeLinks = $crawler->filter('a.mntl-card-list-items')->links();
-
-        foreach ($recipeLinks as $link) {
-            $crawler = $client->click($link);
-
-            // Extract title
-            $title = $crawler->filter('h1.recipe-title')->text();
+        foreach ($links as $link) {
+            $url = $link->getUri();
             
-            // Create Recette entity
+            $crawler = $client->request('GET', $url);
+            
+            // Extract recipe data
+            $title = $crawler->filter('h1')->text();
+
             $recette = new Recette();
             $recette->setTitle($title);
 
-            // Extract and save ingredients
+            // Extract ingredients
             $ingredientItems = $crawler->filter('ul.mntl-structured-ingredients__list li')->each(function (Crawler $node) use ($recette) {
                 $ingredient = new Ingredient();
                 $ingredient->setContent($node->text());
@@ -57,7 +62,7 @@ class ScrapRecipesCommand extends Command
                 return $ingredient;
             });
 
-            // Extract and save steps
+            // Extract steps
             $stepsItems = $crawler->filter('div.recipe__steps-content ol li')->each(function (Crawler $node, $index) use ($recette) {
                 $etape = new Etape();
                 $etape->setContent($node->text());
