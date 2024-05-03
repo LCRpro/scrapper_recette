@@ -10,18 +10,28 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
+
 
 #[ORM\Entity]
 #[ApiResource(
     operations: [
         new Get(),
-        new GetCollection(),
-        new Post()
+        new GetCollection()
+        // new Post()
     ],
     paginationEnabled: false, 
     normalizationContext: ['groups' => ['recette:read']],
     denormalizationContext: ['groups' => ['recette:write']]
 )]
+
+#[ApiFilter(SearchFilter::class, properties: [
+    'title' => 'partial',
+    'ingredients.content' => 'partial'
+])]
+
+
 class Recette
 {
     #[ORM\Id]
