@@ -50,12 +50,12 @@ class ScrapRecette extends Command
             $title = $crawler->filter('h1')->text();
 
             // Extraction des ingrédients de la recette
-            $ingredients = $crawler->filter('ul.mntl-structured-ingredients__list li')->each(function (Crawler $node) {
+            $ingredients = $crawler->filter('ul.mm-recipes-structured-ingredients__list li')->each(function (Crawler $node) {
                 return $node->text();
             });
 
             // Extraction des étapes de la recette
-            $steps = $crawler->filter('div.recipe__steps-content ol li')->each(function (Crawler $node) {
+            $steps = $crawler->filter('div.mm-recipes-steps ol li')->each(function (Crawler $node) {
                 return $node->text();
             });
 

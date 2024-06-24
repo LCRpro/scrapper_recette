@@ -1,5 +1,144 @@
 [
     {
+        "title": "Coconut Rum Brazilian Lemonade",
+        "ingredients": [
+            "2 limes",
+            "2 cups water",
+            "1/2 cup coconut rum",
+            "1/4 cup sweetened condensed milk",
+            "2 cups ice"
+        ],
+        "steps": [
+            "Rinse limes and cut the ends off.\u00a0 Cut each lime in 8 wedges and add to a blender.\u00a0 Add water, coconut rum, and sweetened condensed milk; blend until creamy.\u00a0",
+            "Fill 3 glasses with ice and strain lemonade over."
+        ]
+    },
+    {
+        "title": "Celery Margarita",
+        "ingredients": [
+            "1 tablespoon kosher salt",
+            "1/4 teaspoon ground coriander",
+            "1 lime wedge",
+            "ice, as needed",
+            "1 1/2 fluid ounces tequila",
+            "1 1/2 fluid ounces celery cordial",
+            "3/4 fluid ounce lime juice",
+            "3 dashes celery bitters (optional)",
+            "leafy celery stalk, for garnish"
+        ],
+        "steps": [
+            "Mix salt and coriander together on a small plate. Wipe rim of a margarita glass with lime wedge. Dip rim in salt mixture to coat. Fill glass with crushed ice.\u00a0",
+            "Fill a cocktail shaker half full with ice. Add tequila, celery cordial, lime juice, and bitters to shaker; cover and shake until outside of shaker is frosted, about 60 seconds. Strain into prepared glass and garnish with celery stalk. From the Editor: Find the recipe for Celery Cordial here."
+        ]
+    },
+    {
+        "title": "Mint Julep Sweet Tea",
+        "ingredients": [
+            "3 cups water",
+            "3/4 cups fresh mint",
+            "1/2 cup sugar",
+            "4 tangerine orange herbal tea bags, such as Celestial Seasonings\u00ae Tangerine Orange Zinger",
+            "6 fluid ounces bourbon",
+            "16 mint leaves, optional",
+            "4 slices lemon"
+        ],
+        "steps": [
+            "Bring water, the 3/4 cup mint, and sugar to a boil in a saucepan. Remove from heat and add tea bags. Steep for 1 hour.",
+            "Strain mixture into a pitcher and add bourbon. Stir until combined.",
+            "Muddle 4 mint leaves in a glass. Fill halfway with ice, add a lemon slice, and fill with more ice. Add tea bourbon mixture; garnish with a mint sprig and a lemon wedge."
+        ]
+    },
+    {
+        "title": "Banana Pudding Milkshake",
+        "ingredients": [
+            "1 cup 1% milk",
+            "2 cups vanilla frozen yogurt",
+            "1 banana, divided",
+            "1 (.9 ounce) package sugar-free banana cream pudding mix",
+            "1/2 cup vanilla wafers, divided"
+        ],
+        "steps": [
+            "Add milk and frozen yogurt to the jar of a blender. Slice banana; set 4 to 6 slices aside for garnish. Add remaining banana and pudding mix to the blender. Set 2 vanilla wafers aside for garnish; add remaining vanilla wafers to the blender. Blend until smooth.",
+            "Pour mixture into 2 tall glasses. Top each milkshake with whipped cream, remaining banana slices, and a vanilla wafer."
+        ]
+    },
+    {
+        "title": "Watermelon Sour Patch Cocktail",
+        "ingredients": [
+            "sugar as needed, for rim",
+            "1 lime wedge",
+            "2 cups ice, or as needed",
+            "2 fluid ounces strawberry schnapps",
+            "2 fluid ounces vanilla vodka",
+            "2 fluid ounces sweet and sour mix"
+        ],
+        "steps": [
+            "Pour 1/4 to 1/2 inch of sugar onto a small, shallow plate. Moisten rim of a rocks glass with a wedge of lime, dip the moistened glass into sugar; set aside.",
+            "Scoop ice into a shaker. Pour in strawberry schnapps, vanilla vodka, and sweet and sour mix;\u00a0 cover and shake until the outside is frosted. Strain into a chilled glass."
+        ]
+    },
+    {
+        "title": "Thai Basil Mojito",
+        "ingredients": [
+            "2 cups ice,\u00a0or as needed",
+            "1 fluid ounce fresh lime juice",
+            "3/4 fluid ounce simple syrup",
+            "12 fresh Thai basil leaves",
+            "1 1/2 fluid ounces rum",
+            "2 fluid ounces club soda",
+            "lime wedge (optional)",
+            "1 Thai basil sprig (optional)"
+        ],
+        "steps": [
+            "Fill a collins glass with ice and set aside.",
+            "In a cocktail shaker, combine lime juice, simple syrup and Thai basil leaves. Use a muddler to crush the leaves for about 10 seconds. Add rum and 1 cup of ice. Seal and shake vigorously until outside is frosted, 10 to 15 seconds.",
+            "Strain mojito into the glass and top with club soda; gently stir. Garnish with lime wedge and Thai basil sprig, if desired."
+        ]
+    },
+    {
+        "title": "Pineapple Smoothie",
+        "ingredients": [
+            "1 1/2 cups cubed pineapple, frozen",
+            "1 banana, sliced and frozen",
+            "1 cup canned coconut milk",
+            "1/2 teaspoon coconut extract",
+            "1/2 teaspoon vanilla extract"
+        ],
+        "steps": [
+            "Combine pineapple, banana, coconut milk, coconut extract, and vanilla in a blender cup; blend until smooth. Serve immediately. Cook\u2019s Note Add more coconut milk if\u00a0smoothie\u00a0is on the thick side."
+        ]
+    },
+    {
+        "title": "Thai Iced Coffee",
+        "ingredients": [
+            "ice as needed",
+            "4 ounces milk",
+            "2 shots espresso",
+            "1/8 teaspoon cardamom",
+            "2 tablespoons sweetened condensed milk"
+        ],
+        "steps": [
+            "Fill a 16 ounce glass with ice. Add milk. Add cardamom to espresso and stir to combine. Pour into glass. Top with sweetened condensed milk."
+        ]
+    },
+    {
+        "title": "Gin and Jam Cocktail",
+        "ingredients": [
+            "2 fluid ounces gin",
+            "1 tablespoon jam, blackberry or any flavor",
+            "3/4 fluid ounce fresh lemon juice",
+            "1/2 fluid ounce simple syrup",
+            "1 cup ice cubes",
+            "1 cup crushed ice",
+            "1 mint leaf, for garnish",
+            "1 splash club soda (optional)"
+        ],
+        "steps": [
+            "Place gin, jam, lemon juice,and simple syrup in a cocktail shaker, along with 1 cup ice cubes. Seal and shake vigorously until outside is frosted, 10 to 15 seconds.",
+            "Fill a glass with crushed ice; strain cocktail into the glass. Top with a splash of club soda, if desired.\u00a0Garnish with mint leaf."
+        ]
+    },
+    {
         "title": "Tequila Old Fashioned",
         "ingredients": [
             "4 maraschino cherries, stems removed, divided",
@@ -731,9 +870,9 @@
         "ingredients": [
             "1 tablespoon coarse salt, or as needed",
             "1 lemon wedge",
-            "1 1/2 fluid ounces freshly-squeezed lemon juice",
-            "1 1/2 fluid ounces vodka",
-            "4 fluid ounces sparkling mineral water (such as Topo Chico\u00ae), or as needed"
+            "1 \u00bd\u00a0 fluid ounces freshly-squeezed lemon juice",
+            "1 \u00bd fluid ounces vodka",
+            "4 fluid ounces sparkling mineral water, or as needed"
         ],
         "steps": [
             "Sprinkle salt onto a plate. Moisten the rim of a highball glass with lemon wedge. Press the moistened rim into salt. Fill the glass with ice.",
@@ -781,126 +920,6 @@
         ],
         "steps": [
             "Cut pithayas in half and scoop out flesh. Blend pithaya flesh, the water, lime juice, and sugar in a blender until smooth. Pour over ice and garnish glasses with lime wheels."
-        ]
-    },
-    {
-        "title": "Spiked Lemonade",
-        "ingredients": [
-            "\u00bd cup freshly squeezed lemon juice",
-            "\u00bc cup warm water",
-            "\u00bc cup white sugar",
-            "\u00bd cup cold water",
-            "3 (1.5 fluid ounce) jiggers coconut-flavored rum",
-            "ice cubes, as needed"
-        ],
-        "steps": [
-            "Place sugar in warm water, stirring until sugar is completely dissolved. Add lemon juice, cold water, and coconut rum. Stir until completely incorporated.",
-            "Fill 2 glasses with ice cubes and divide lemon juice mixture amongst both glasses."
-        ]
-    },
-    {
-        "title": "Copycat Pink Drink",
-        "ingredients": [
-            "\u00bd cup water",
-            "\u00bc cup white grape juice or white cranberry juice",
-            "1 serving wild strawberry sugar-free drink mix (such as Crystal Light)",
-            "1 (2 g) bag hibiscus tea (such as Tazo Passion)",
-            "2 \u00bc cups refrigerated unsweetened coconut milk",
-            "ice cubes, freeze-dried strawberries, or sliced fresh or frozen strawberries as garnish (optional)"
-        ],
-        "steps": [
-            "Pour water, juice, and drink mix into a glass. Stir to dissolve. Add tea bag. Let stand for 5 minutes (it doesn't have to be hot). Remove and discard tea bag.",
-            "Fill 2 tall glasses with ice. Add half the strawberry-tea mixture and half the coconut milk to each glass. Stir to combine. Stir in strawberries (if using)."
-        ]
-    },
-    {
-        "title": "Limoncello Moscow Mule",
-        "ingredients": [
-            "1 cup ice",
-            "\u00bd fluid ounce fresh lime juice",
-            "1 \u00bd fluid ounces limoncello liqueur",
-            "1 \u00bd fluid ounces vodka",
-            "5 ounces ginger beer",
-            "1 thin lemon slice (optional)"
-        ],
-        "steps": [
-            "Fill a copper mule mug with ice. Add lime juice, limoncello, and vodka; stir to combine. Top with ginger beer. Lightly stir again and garnish with lemon slice."
-        ]
-    },
-    {
-        "title": "Cantaloupe Frenzy",
-        "ingredients": [
-            "1 cantaloupe - peeled, seeded and cubed",
-            "3 tablespoons white sugar, or to taste",
-            "2 cups ice cubes"
-        ],
-        "steps": [
-            "Place cantaloupe cubes and ice into the container of a blender. Process until the ice is in small pieces. Add sugar, and puree. Pour into tall glasses and serve immediately."
-        ]
-    },
-    {
-        "title": "How Well Do You Know Booze?",
-        "ingredients": [],
-        "steps": []
-    },
-    {
-        "title": "Kombucha Margarita",
-        "ingredients": [
-            "2 cups ice",
-            "2 fluid ounces silver tequila",
-            "\u00be fluid ounce triple sec (orange-flavored liqueur)",
-            "\u00be fluid ounce freshly squeezed lime juice",
-            "1 tablespoon coarse salt, or as needed",
-            "1 lime wedge",
-            "3 ounces citrus flavored kombucha, or your favorite flavor"
-        ],
-        "steps": [
-            "Fill a cocktail shaker half-full with ice. Add tequila, triple sec, and lime juice to the shaker. Seal and shake vigorously until outside is frosted, 10 to 15 seconds.",
-            "Sprinkle salt onto a plate. Moisten the rim of a glass with the lime wedge. Press the moistened rim into the salt. Fill glass with ice.",
-            "Strain margarita into the glass and top with kombucha. Stir gently and garnish with lime wedge, if desired."
-        ]
-    },
-    {
-        "title": "Kombucha Mule",
-        "ingredients": [
-            "1 \u00bd cups ice",
-            "\u00bd fluid ounce freshly squeezed lime juice",
-            "2 fluid ounces vodka",
-            "4 ounces ginger-flavored Kombucha (such as KeVita\u00aeMaster Brew Ginger)",
-            "1 thin lime slice (optional)"
-        ],
-        "steps": [
-            "Fill a copper mule mug with ice. Add lime juice and vodka; stir to combine. Top with ginger kombucha. Lightly stir again and garnish with lime slice."
-        ]
-    },
-    {
-        "title": "Oyster Shooters",
-        "ingredients": [
-            "9 fluid ounces tomato juice",
-            "1 teaspoon prepared horseradish",
-            "2 teaspoons freshly ground black pepper",
-            "12 (1.5 fluid ounce) jiggers vodka",
-            "12 shucked oysters",
-            "1 lemon - cut into wedges, for garnish"
-        ],
-        "steps": [
-            "Mix tomato juice, horseradish, and pepper in a large bowl until well combined.",
-            "Pour 1/2 shot of tomato juice mixture into 12 small glasses. Add a shot of vodka to each glass. Place 1 raw oyster in each glass and garnish with a lemon wedge."
-        ]
-    },
-    {
-        "title": "Washington Apple Cocktail",
-        "ingredients": [
-            "2 fluid ounces whiskey",
-            "1 \u00bd fluid ounces cranberry juice",
-            "1 fluid ounce sour apple schnapps (such as DeKuyper\u00ae Sour Apple Pucker)",
-            "1 teaspoon agave nectar",
-            "ice cubes as needed",
-            "2 apple slices for garnish"
-        ],
-        "steps": [
-            "Combine whiskey, cranberry juice, apple schnapps, and agave in a cocktail shaker. Fill cocktail shaker with ice and shake well.",
-            "Strain into frosted martini glasses and garnish with an apple slice."
         ]
     }
 ]

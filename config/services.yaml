@@ -1,16 +1,10 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
-
-parameters:
-
 services:
-    # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $documentManager: '@doctrine_mongodb.odm.document_manager' # Injects the MongoDB Document Manager service
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
         exclude:
@@ -22,4 +16,5 @@ services:
         tags: ['console.command']
     App\Command\ImportJson:
         tags: ['console.command']
-    
+    App\Command\ImportJsonNoSqlCommand:
+        tags: ['console.command']
