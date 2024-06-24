@@ -3,20 +3,30 @@
 namespace App\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use ApiPlatform\Metadata\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[MongoDB\Document]
+// #[ApiResource(
+//     normalizationContext: ['groups' => ['etape:nosql:read']],
+//     denormalizationContext: ['groups' => ['etape:nosql:write']]
+// )]
 class Etape
 {
     #[MongoDB\Id]
+    #[Groups(['etape:nosql:read'])]
     private $id;
 
     #[MongoDB\Field(type: 'string')]
+    #[Groups(['etape:nosql:read', 'etape:nosql:write', 'recette:nosql:read', 'recette:nosql:write'])]
     private $content;
 
-    #[MongoDB\ReferenceOne(targetDocument: Recette::class)]
+    #[MongoDB\ReferenceOne(targetDocument: Recette::class, inversedBy: 'etapes')]
+    #[Groups(['etape:nosql:read', 'etape:nosql:write'])]
     private $recette;
 
     #[MongoDB\Field(type: 'int')]
+    #[Groups(['etape:nosql:read', 'etape:nosql:write', 'recette:nosql:read', 'recette:nosql:write'])]
     private $step;
 
     public function getId(): ?string
@@ -57,3 +67,7 @@ class Etape
         return $this;
     }
 }
+
+
+
+

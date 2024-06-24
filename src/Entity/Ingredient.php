@@ -6,22 +6,27 @@ use App\Repository\IngredientRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: IngredientRepository::class)]
+// #[ApiResource(
+//     normalizationContext: ['groups' => ['ingredient:sql:read']],
+//     denormalizationContext: ['groups' => ['ingredient:sql:write']]
+// )]
 class Ingredient
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['ingredient:sql:read', 'ingredient:sql:write', 'recette:sql:read', 'recette:sql:write'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['ingredient:sql:read', 'ingredient:sql:write', 'recette:sql:read', 'recette:sql:write'])]
     private ?string $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'ingredients')]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['ingredient:sql:read', 'ingredient:sql:write'])]
     private ?Recette $recette = null;
 
     public function getId(): ?int

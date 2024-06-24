@@ -1,9 +1,9 @@
 services:
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        autowire: true
+        autoconfigure: true
         bind:
-            $documentManager: '@doctrine_mongodb.odm.document_manager' # Injects the MongoDB Document Manager service
+            $documentManager: '@doctrine_mongodb.odm.document_manager'
 
     App\:
         resource: '../src/'

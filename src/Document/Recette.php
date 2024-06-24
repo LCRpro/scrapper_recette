@@ -1,22 +1,59 @@
-<?php namespace App\Document;
+<?php
+
+namespace App\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Post;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Doctrine\Odm\Filter\SearchFilter;
+use ApiPlatform\Metadata\ApiFilter;
 
 #[MongoDB\Document]
+#[ApiResource(
+    operations: [
+        new Get(
+            uriTemplate: '/nosql/recettes/{id}',
+            normalizationContext: ['groups' => ['recette:nosql:read']]
+        ),
+        new GetCollection(
+            uriTemplate: '/nosql/recettes',
+            normalizationContext: ['groups' => ['recette:nosql:read']]
+        )
+        // ,
+        // new Post(
+        //     uriTemplate: '/nosql/recettes',
+        //     denormalizationContext: ['groups' => ['recette:nosql:write']]
+        // )
+    ],
+    paginationEnabled: false,
+    normalizationContext: ['groups' => ['recette:nosql:read']],
+    denormalizationContext: ['groups' => ['recette:nosql:write']]
+)]
+#[ApiFilter(SearchFilter::class, properties: [
+    'title' => 'partial',
+    'ingredients.content' => 'partial'
+])]
 class Recette
 {
     #[MongoDB\Id]
+    #[Groups(['recette:nosql:read'])]
     private $id;
 
     #[MongoDB\Field(type: 'string')]
+    #[Groups(['recette:nosql:read', 'recette:nosql:write'])]
     private $title;
 
-    #[MongoDB\ReferenceMany(targetDocument: Ingredient::class, cascade: ["persist", "remove"])]
+    #[MongoDB\ReferenceMany(targetDocument: Ingredient::class, mappedBy: 'recette', cascade: ["persist", "remove"])]
+    #[Groups(['recette:nosql:read', 'recette:nosql:write'])]
     private $ingredients;
 
-    #[MongoDB\ReferenceMany(targetDocument: Etape::class, cascade: ["persist", "remove"])]
+    #[MongoDB\ReferenceMany(targetDocument: Etape::class, mappedBy: 'recette', cascade: ["persist", "remove"])]
+    #[Groups(['recette:nosql:read', 'recette:nosql:write'])]
     private $etapes;
 
     public function __construct()
@@ -41,9 +78,6 @@ class Recette
         return $this;
     }
 
-    /**
-     * @return Collection<int, Ingredient>
-     */
     public function getIngredients(): Collection
     {
         return $this->ingredients;
@@ -55,7 +89,6 @@ class Recette
             $this->ingredients->add($ingredient);
             $ingredient->setRecette($this);
         }
-
         return $this;
     }
 
@@ -66,13 +99,9 @@ class Recette
                 $ingredient->setRecette(null);
             }
         }
-
         return $this;
     }
 
-    /**
-     * @return Collection<int, Etape>
-     */
     public function getEtapes(): Collection
     {
         return $this->etapes;
@@ -84,7 +113,6 @@ class Recette
             $this->etapes->add($etape);
             $etape->setRecette($this);
         }
-
         return $this;
     }
 
@@ -95,7 +123,7 @@ class Recette
                 $etape->setRecette(null);
             }
         }
-
         return $this;
     }
 }
+

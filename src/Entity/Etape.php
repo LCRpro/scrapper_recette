@@ -6,26 +6,31 @@ use App\Repository\EtapeRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Metadata\ApiResource;
 
 #[ORM\Entity(repositoryClass: EtapeRepository::class)]
+// #[ApiResource(
+//     normalizationContext: ['groups' => ['etape:sql:read']],
+//     denormalizationContext: ['groups' => ['etape:sql:write']]
+// )]
 class Etape
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['etape:sql:read', 'etape:sql:write', 'recette:sql:read', 'recette:sql:write'])]
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['etape:sql:read', 'etape:sql:write', 'recette:sql:read', 'recette:sql:write'])]
     private ?string $content = null;
 
     #[ORM\ManyToOne(inversedBy: 'etapes')]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['etape:sql:read', 'etape:sql:write'])]
     private ?Recette $recette = null;
 
     #[ORM\Column(nullable: true)]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['etape:sql:read', 'etape:sql:write', 'recette:sql:read', 'recette:sql:write'])]
     private ?int $step = null;
 
     public function getId(): ?int
@@ -69,3 +74,5 @@ class Etape
         return $this;
     }
 }
+
+

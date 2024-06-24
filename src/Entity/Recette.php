@@ -13,43 +13,49 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Doctrine\Orm\Filter\SearchFilter;
 use ApiPlatform\Metadata\ApiFilter;
 
-
 #[ORM\Entity]
 #[ApiResource(
     operations: [
-        new Get(),
-        new GetCollection()
-        // new Post()
+        new Get(
+            uriTemplate: '/sql/recettes/{id}',
+            normalizationContext: ['groups' => ['recette:sql:read']]
+        ),
+        new GetCollection(
+            uriTemplate: '/sql/recettes',
+            normalizationContext: ['groups' => ['recette:sql:read']]
+        )
+        // ,
+        // new Post(
+        //     uriTemplate: '/sql/recettes',
+        //     denormalizationContext: ['groups' => ['recette:sql:write']]
+        // )
     ],
-    paginationEnabled: false, 
-    normalizationContext: ['groups' => ['recette:read']],
-    denormalizationContext: ['groups' => ['recette:write']]
+    paginationEnabled: false,
+    normalizationContext: ['groups' => ['recette:sql:read']],
+    denormalizationContext: ['groups' => ['recette:sql:write']]
 )]
-
 #[ApiFilter(SearchFilter::class, properties: [
     'title' => 'partial',
     'ingredients.content' => 'partial'
 ])]
-
-
 class Recette
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    #[Groups(['recette:read'])]
+    #[Groups(['recette:sql:read'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['recette:sql:read', 'recette:sql:write'])]
     private ?string $title = null;
 
     #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Ingredient::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['recette:sql:read', 'recette:sql:write'])]
     private Collection $ingredients;
 
     #[ORM\OneToMany(mappedBy: 'recette', targetEntity: Etape::class, cascade: ['persist', 'remove'], orphanRemoval: true)]
-    #[Groups(['recette:read', 'recette:write'])]
+    #[Groups(['recette:sql:read', 'recette:sql:write'])]
     private Collection $etapes;
 
     public function __construct()
@@ -75,9 +81,6 @@ class Recette
         return $this;
     }
 
-    /**
-     * @return Collection<int, Ingredient>
-     */
     public function getIngredients(): Collection
     {
         return $this->ingredients;
@@ -104,9 +107,6 @@ class Recette
         return $this;
     }
 
-    /**
-     * @return Collection<int, Etape>
-     */
     public function getEtapes(): Collection
     {
         return $this->etapes;
@@ -133,3 +133,4 @@ class Recette
         return $this;
     }
 }
+

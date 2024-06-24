@@ -30,7 +30,7 @@ class ImportJsonNoSqlCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $jsonFile = 'recette.json';
+        $jsonFile = 'recettes.json';
         if (!file_exists($jsonFile)) {
             $output->writeln("Le fichier '$jsonFile' n'existe pas.");
             return Command::FAILURE;
